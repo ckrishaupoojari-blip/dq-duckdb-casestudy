@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dq-api-monitor
+spec:
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: monitor
+            image: dq-duckdb:1.0
+            imagePullPolicy: Never
+            command: ["python", "src/05_realtime_api.py", "1", "1"]

@@ -1,0 +1,7 @@
+.venv/
+data/
+__pycache__/
+*.duckdb
+*.tar
+results/orders_clean.parquet
+results/orders_quarantine.csv
